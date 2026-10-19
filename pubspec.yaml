@@ -13,6 +13,7 @@ dependencies:
 
   crypto:
   http:
+  google_fonts:
 
 
 dev_dependencies:

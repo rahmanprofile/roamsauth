@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:roamsauth/generic/version.dart';
 
 class BuiltInComponent extends StatelessWidget {
@@ -31,7 +32,6 @@ class BuiltInComponent extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: _line),
                 boxShadow: const [
                   BoxShadow(
                     color: Color(0x14000000),
@@ -53,11 +53,11 @@ class BuiltInComponent extends StatelessWidget {
                     child: const Icon(Icons.graphic_eq_outlined, color: _red, size: 48),
                   ),
                   const SizedBox(height: 24),
-                  const Text(
+                  Text(
                     'RoamsAuth',
-                    style: TextStyle(
+                    style: GoogleFonts.roboto(
                       fontSize: 26,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w800,
                       letterSpacing: -0.5,
                       color: _dark,
                     ),
@@ -72,9 +72,9 @@ class BuiltInComponent extends StatelessWidget {
                       color: const Color(0xFFF2F3F5),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Version ${RoamsVersion.version}',
-                      style: TextStyle(
+                      style: GoogleFonts.roboto(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                         color: _muted,
@@ -82,11 +82,11 @@ class BuiltInComponent extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Text(
+                  Text(
                     'Developed by Coach Maintenance & Management Group, Centre for Railway Information Systems',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 12.5,
+                    style: GoogleFonts.roboto(
+                      fontSize: 12,
                       height: 1.5,
                       color: _muted,
                     ),
@@ -105,12 +105,12 @@ class BuiltInComponent extends StatelessWidget {
                           borderRadius: BorderRadius.circular(6),
                         ),
                       ),
-                      child: const Row(
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             'Continue with RoamsAuth',
-                            style: TextStyle(
+                            style: GoogleFonts.roboto(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
                             ),
@@ -122,11 +122,11 @@ class BuiltInComponent extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
+                  Text(
                     'By continuing, RoamsAuth will receive ongoing access to the information you share and the settings you have.',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 12.5,
+                    style: GoogleFonts.roboto(
+                      fontSize: 12,
                       height: 1.5,
                       color: _muted,
                     ),
@@ -136,62 +136,13 @@ class BuiltInComponent extends StatelessWidget {
                   const SizedBox(height: 16),
                   Text(
                     'Coach-Mitra | RailCare | CMM-Dashboard | Watering'.toUpperCase(),
-                    style: TextStyle(fontSize: 13, color: _red),
+                    style: GoogleFonts.roboto(fontSize: 11.5, color: _red),
                   ),
                 ],
               ),
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _DetailRow extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final String value;
-
-  const _DetailRow({
-    required this.icon,
-    required this.label,
-    required this.value,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-      child: Row(
-        children: [
-          Icon(icon, size: 22, color: BuiltInComponent._red),
-          const SizedBox(width: 14),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  label,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: BuiltInComponent._muted,
-                  ),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  value,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    height: 1.35,
-                    color: BuiltInComponent._dark,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }
