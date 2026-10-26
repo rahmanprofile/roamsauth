@@ -50,7 +50,7 @@ class BuiltInComponent extends StatelessWidget {
                       color: const Color(0xFFFDECEC),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: const Icon(Icons.graphic_eq_outlined, color: _red, size: 48),
+                    child: const Icon(Icons.recommend, color: _red, size: 48),
                   ),
                   const SizedBox(height: 24),
                   Text(
