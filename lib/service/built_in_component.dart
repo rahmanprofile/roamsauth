@@ -43,15 +43,7 @@ class BuiltInComponent extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Container(
-                    width: 84,
-                    height: 84,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFFDECEC),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Icon(Icons.recommend, color: _red, size: 48),
-                  ),
+                  Center(child: Text("𑄙", style: TextStyle(fontSize: 80, fontWeight: FontWeight.w900, color: _red))),
                   const SizedBox(height: 24),
                   Text(
                     'RoamsAuth',
@@ -135,7 +127,7 @@ class BuiltInComponent extends StatelessWidget {
                   const Divider(color: _line, height: 1),
                   const SizedBox(height: 16),
                   Text(
-                    'Coach-Mitra | RailCare | CMM-Dashboard | Watering'.toUpperCase(),
+                    'Coach-Mitra | Rail-Care | CMM-Dashboard | Watering | \nMU-CARE | ROAMS-APP'.toUpperCase(),textAlign: TextAlign.center,
                     style: GoogleFonts.roboto(fontSize: 11.5, color: _red),
                   ),
                 ],

@@ -1,0 +1,10 @@
+### Roamsauth Changelog
+
+**Version 0.0.1**
+- Designed the Roamsauth application.
+- Added support for applications: `LOCAL`, `RAILCARE`, `CMMDASHBOARD`, `WATERING`, `MUCARE`, and `ROAMSAPP`.
+
+**Version 0.0.2**
+- Integrated client IDs for individual projects.
+- Set `localhost` as the preferred local development host.
+- Configured the preferred local development port to `5555` (`http://localhost:5555/`).

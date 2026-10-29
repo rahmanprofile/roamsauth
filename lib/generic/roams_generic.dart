@@ -24,10 +24,11 @@ class RoamsGeneric {
       orElse: () => null,
     );
 
-    if (client == null) {
+
+      if (client == null) {
       throw ArgumentError.value(
         customRedirectUri,
-        '[Custom Redirect Url]',
+        'Custom Redirect Url',
         'Access denied: unregistered redirect URI.',
       );
     }
@@ -58,6 +59,15 @@ class RoamsGeneric {
 }
 
 final List<HostClient> listClient = [
+
+  /// flutter run -d chrome --web-hostname localhost --web-port 5555
+  HostClient(
+    hostType: HostType.LOCAL,
+    clientId: "development-environment",
+    url: "http://localhost:5555/",
+    testUrl: 'http://localhost:5555/',
+  ),
+
   HostClient(
     hostType: HostType.RAILCARE,
     clientId: "rail-care",
@@ -94,7 +104,7 @@ final List<HostClient> listClient = [
   ),
 ];
 
-enum HostType { RAILCARE, CMMDASHBOARD, WATERING, MUCARE, ROAMSAPP }
+enum HostType { LOCAL, RAILCARE, CMMDASHBOARD, WATERING, MUCARE, ROAMSAPP }
 
 class HostClient {
   final String url;
