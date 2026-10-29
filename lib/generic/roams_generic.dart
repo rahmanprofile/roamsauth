@@ -10,11 +10,17 @@ class RoamsGeneric {
     required this.environment,
   });
 
-  factory RoamsGeneric({RoamsEnvironment environment = RoamsEnvironment.test, String? customRedirectUri}) {
-
+  factory RoamsGeneric({
+    RoamsEnvironment environment = RoamsEnvironment.test,
+    String? customRedirectUri,
+  }) {
     final redirectUri = customRedirectUri;
-    final client = listClient.cast<HostClient?>().firstWhere((e) => e != null
-        && (environment == RoamsEnvironment.production ? e.url == redirectUri : e.testUrl == redirectUri),
+    final client = listClient.cast<HostClient?>().firstWhere(
+      (e) =>
+          e != null &&
+          (environment == RoamsEnvironment.production
+              ? e.url == redirectUri
+              : e.testUrl == redirectUri),
       orElse: () => null,
     );
 
@@ -45,7 +51,10 @@ class RoamsGeneric {
 
   List<String> get scopeList => scopes.split(' ');
 
-  bool get isValid => authEndpoint.isNotEmpty && tokenEndpoint.isNotEmpty && clientId.isNotEmpty;
+  bool get isValid =>
+      authEndpoint.isNotEmpty &&
+      tokenEndpoint.isNotEmpty &&
+      clientId.isNotEmpty;
 }
 
 final List<HostClient> listClient = [
