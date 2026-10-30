@@ -69,12 +69,21 @@ final List<HostClient> listClient = [
   ),
 
   HostClient(
+    hostType: HostType.LOCAL,
+    clientId: "roams-web-test",
+    url: "https://roams.cris.org.in/wateringpkce/",
+    testUrl: 'https://roams.cris.org.in/wateringpkce/',
+  ),
+
+  /// ritesh/neeraj
+  HostClient(
     hostType: HostType.RAILCARE,
     clientId: "rail-care",
     url: "https://roams.cris.org.in/railcare/",
     testUrl: 'https://roams.cris.org.in/railcaretest/',
   ),
 
+  /// kishan
   HostClient(
     hostType: HostType.ROAMSAPP,
     clientId: "roams-app",
@@ -82,6 +91,7 @@ final List<HostClient> listClient = [
     testUrl: 'https://roams.cris.org.in/roamsapptest/',
   ),
 
+  /// monika
   HostClient(
     hostType: HostType.CMMDASHBOARD,
     clientId: "cmm-dashboard",
@@ -89,6 +99,7 @@ final List<HostClient> listClient = [
     testUrl: 'https://roams.cris.org.in/cmmdashboardtest/',
   ),
 
+  /// kishan
   HostClient(
     hostType: HostType.MUCARE,
     clientId: "mu-care",
@@ -96,6 +107,7 @@ final List<HostClient> listClient = [
     testUrl: 'https://roams.cris.org.in/mucaretest/',
   ),
 
+  /// rahman
   HostClient(
     hostType: HostType.WATERING,
     clientId: "watering-dashboard",
