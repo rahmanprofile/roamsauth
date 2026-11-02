@@ -51,13 +51,12 @@ class RoamsGeneric {
 
   List<String> get scopeList => scopes.split(' ');
 
-  bool get isValid =>
-      authEndpoint.isNotEmpty &&
-      tokenEndpoint.isNotEmpty &&
-      clientId.isNotEmpty;
+  bool get isValid => authEndpoint.isNotEmpty && tokenEndpoint.isNotEmpty && clientId.isNotEmpty;
 }
 
 final List<HostClient> listClient = [
+
+  /// test access
   HostClient(
     hostType: HostType.LOCAL,
     clientId: "development-environment",
@@ -72,19 +71,21 @@ final List<HostClient> listClient = [
     testUrl: 'https://roams.cris.org.in/wateringpkce/',
   ),
 
-  HostClient(
-    hostType: HostType.RAILCARE,
-    clientId: "rail-care",
-    url: "https://roams.cris.org.in/railcare/",
-    testUrl: 'https://roams.cris.org.in/railcaretest/',
-  ),
 
-  /// test access
   HostClient(
     hostType: HostType.RAILCARE,
     clientId: "rail-care-v1",
     url: "https://roams.cris.org.in/railcareV1/",
     testUrl: 'https://roams.cris.org.in/railcaretestV1/',
+  ),
+
+
+  /// Prod access
+  HostClient(
+    hostType: HostType.RAILCARE,
+    clientId: "rail-care",
+    url: "https://roams.cris.org.in/railcare/",
+    testUrl: 'https://roams.cris.org.in/railcaretest/',
   ),
 
   HostClient(
