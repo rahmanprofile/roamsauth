@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
       home: WebRoamsauth(
-        onSuccess: (Map<String, dynamic> token) {},
-        onError: (Map<String, dynamic> error) {},
+        onSuccess: ( Map<String, dynamic> token ) {},
+        onError: ( Map<String, dynamic> error ) {},
       ),
     );
   }
