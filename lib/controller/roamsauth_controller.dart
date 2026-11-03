@@ -2,6 +2,9 @@ import 'package:http/http.dart' as http;
 
 class RoamsauthController {
 
+  RoamsauthController.__();
+  static RoamsauthController get instance => RoamsauthController.__();
+
   static const String _url = "https://roams.cris.org.in/uaa/logout";
 
   Future<bool> logout() async {
