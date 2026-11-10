@@ -25,6 +25,11 @@ class RoamsGeneric {
     );
 
     if (client == null) {
+
+
+      print("client: $client");
+      print("customRedirectUri: $customRedirectUri");
+
       throw ArgumentError.value(
         customRedirectUri,
         'Custom Redirect Url',
