@@ -1,1 +1,1 @@
-class RoamsVersion { static const version = "0.0.3"; }
+class RoamsVersion { static const version = "0.0.4"; }

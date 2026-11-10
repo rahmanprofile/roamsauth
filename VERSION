@@ -8,3 +8,12 @@
 - Integrated client IDs for individual projects.
 - Set `localhost` as the preferred local development host.
 - Configured the preferred local development port to `5555` (`http://localhost:5555/`).
+
+
+**Version 0.0.3**
+- Integrated client IDs for individual projects.
+- Set `added 2 project roamsapp and mucare` as the preferred local development host.
+
+**Version 0.0.4**
+- Removed environment source.
+- Set `scrUrl` for all.

@@ -1,7 +1,8 @@
 import '../environment/roams_environment.dart';
 
 class RoamsGeneric {
-  const RoamsGeneric._({
+
+  const RoamsGeneric.___({
     required this.authEndpoint,
     required this.tokenEndpoint,
     required this.clientId,
@@ -10,40 +11,26 @@ class RoamsGeneric {
     required this.environment,
   });
 
-  factory RoamsGeneric({
-    RoamsEnvironment environment = RoamsEnvironment.test,
-    String? customRedirectUri,
-  }) {
-    final redirectUri = customRedirectUri;
-    final client = listClient.cast<HostClient?>().firstWhere(
-      (e) =>
-          e != null &&
-          (environment == RoamsEnvironment.production
-              ? e.url == redirectUri
-              : e.testUrl == redirectUri),
-      orElse: () => null,
-    );
+  factory RoamsGeneric({ required String srcUrl }) {
 
-    if (client == null) {
+    final HostClient client = listClient.firstWhere((e) => e.url == srcUrl || e.testUrl == srcUrl,
+        orElse: () => throw ArgumentError.value(srcUrl,
+      'Access denied: unregistered redirect URI: $srcUrl',
+    ));
 
+    print("roamsauth -> \n"
+        "url: ${client.url},\n"
+        "clientId: ${client.clientId},\n"
+        "hostType: ${client.hostType},\n"
+        "testUrl: ${client.testUrl}");
 
-      print("client: $client");
-      print("customRedirectUri: $customRedirectUri");
-
-      throw ArgumentError.value(
-        customRedirectUri,
-        'Custom Redirect Url',
-        'Access denied: unregistered redirect URI.',
-      );
-    }
-
-    return RoamsGeneric._(
-      authEndpoint: 'https://roams.cris.org.in/uaa/oauth/authorize',
-      tokenEndpoint: 'https://roams.cris.org.in/uaa/oauth/token',
+    return RoamsGeneric.___(
+      redirectUri: client.url,
       clientId: client.clientId,
       scopes: 'cmm read write',
-      redirectUri: redirectUri!,
-      environment: environment,
+      environment: RoamsEnvironment.production,
+      authEndpoint: 'https://roams.cris.org.in/uaa/oauth/authorize',
+      tokenEndpoint: 'https://roams.cris.org.in/uaa/oauth/token',
     );
   }
 
@@ -53,18 +40,12 @@ class RoamsGeneric {
   final String scopes;
   final String redirectUri;
   final RoamsEnvironment environment;
-
-  List<String> get scopeList => scopes.split(' ');
-
-  bool get isValid => authEndpoint.isNotEmpty && tokenEndpoint.isNotEmpty && clientId.isNotEmpty;
 }
 
 final List<HostClient> listClient = [
-
-  /// test access
   HostClient(
     hostType: HostType.LOCAL,
-    clientId: "development-environment",
+    clientId: "dev-env",
     url: "http://localhost:5555/",
     testUrl: 'http://localhost:5555/',
   ),
@@ -76,7 +57,6 @@ final List<HostClient> listClient = [
     testUrl: 'https://roams.cris.org.in/wateringpkce/',
   ),
 
-
   HostClient(
     hostType: HostType.RAILCARE,
     clientId: "rail-care-v1",
@@ -84,8 +64,6 @@ final List<HostClient> listClient = [
     testUrl: 'https://roams.cris.org.in/railcaretestV1/',
   ),
 
-
-  /// Prod access
   HostClient(
     hostType: HostType.RAILCARE,
     clientId: "rail-care",

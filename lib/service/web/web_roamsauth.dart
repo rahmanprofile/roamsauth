@@ -36,12 +36,7 @@ class _WebRoamsauthState extends State<WebRoamsauth> {
     final origin = html.window.location.origin;
     final path = html.window.location.pathname ?? '/';
     redirectUriCtrl = '$origin$path';
-
-    generic = RoamsGeneric(
-      environment: RoamsEnvironment.test,
-      customRedirectUri: redirectUriCtrl,
-    );
-
+    generic = RoamsGeneric(srcUrl: redirectUriCtrl);
     _handleCallbackIfPresent();
   }
 
