@@ -13,9 +13,9 @@ class RoamsGeneric {
 
   factory RoamsGeneric({ required String srcUrl }) {
 
-    final HostClient client = listClient.firstWhere((e) => e.url == srcUrl || e.testUrl == srcUrl,
-        orElse: () => throw ArgumentError.value(srcUrl,
-      'Access denied: unregistered redirect URI: $srcUrl',
+    final HostClient client = listClient
+        .firstWhere((e) => e.url == srcUrl || e.testUrl == srcUrl,
+        orElse: () => throw ArgumentError.value(srcUrl, 'Access denied: unregistered redirect URI: $srcUrl',
     ));
 
     print("roamsauth -> \n"
@@ -25,7 +25,7 @@ class RoamsGeneric {
         "testUrl: ${client.testUrl}");
 
     return RoamsGeneric.___(
-      redirectUri: client.url,
+      redirectUri: srcUrl,
       clientId: client.clientId,
       scopes: 'cmm read write',
       environment: RoamsEnvironment.production,
